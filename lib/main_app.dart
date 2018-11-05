@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mz_github/pages/login_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -9,18 +10,8 @@ class _MainPageStat extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "flutter for github",
-      theme: ThemeData(primaryColor: Colors.deepPurple),
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text("home"),
-        ),
-        body: Container(
-            // todo
-
-            ),
-      ),
+      theme: ThemeData(primaryColor: Colors.black),
+      home: LoginPage(),
     );
   }
 }

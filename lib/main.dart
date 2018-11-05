@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
-import 'pages/MainApp.dart';
+import 'package:mz_github/main_app.dart';
 
 void main() => runApp(new MainPage());
