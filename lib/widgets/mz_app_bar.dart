@@ -90,7 +90,7 @@ class _MZAppBarState extends State<MZAppBar> {
                                 ),
                               ),
                               onTap: () {
-                                Navigator.of(context).pop();
+                                Navigator.maybePop(context);
                               },
                             ),
                       ),
