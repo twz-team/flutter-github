@@ -6,7 +6,7 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-User _$UserBeanFromJson(Map<String, dynamic> json) {
+User _$UserFromJson(Map<String, dynamic> json) {
   return User(
       plan: json['plan'] == null ? null : UserPlanBean.fromJson(json['plan']))
     ..login = json['login'] as String
@@ -26,7 +26,7 @@ User _$UserBeanFromJson(Map<String, dynamic> json) {
     ..eventsUrl = json['events_url'] as String
     ..receivedEventsUrl = json['received_events_url'] as String
     ..type = json['type'] as String
-    ..siteAdmin = json['site_admin'] as String
+    ..siteAdmin = json['site_admin'] as bool
     ..name = json['name'] as String
     ..company = json['company'] as String
     ..blog = json['blog'] as String
@@ -34,8 +34,8 @@ User _$UserBeanFromJson(Map<String, dynamic> json) {
     ..email = json['email'] as String
     ..hireable = json['hireable'] as String
     ..bio = json['bio'] as String
-    ..publicRepos = json['public_repos'] as String
-    ..publicGists = json['public_gists'] as String
+    ..publicRepos = json['public_repos'] as int
+    ..publicGists = json['public_gists'] as int
     ..followers = json['followers'] as int
     ..following = json['following'] as int
     ..createAt = json['create_at'] as String
@@ -48,7 +48,7 @@ User _$UserBeanFromJson(Map<String, dynamic> json) {
     ..twoFactorAuthentication = json['two_factor_authentication'] as bool;
 }
 
-Map<String, dynamic> _$UserBeanToJson(User instance) => <String, dynamic>{
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'login': instance.login,
       'id': instance.id,
       'node_id': instance.nodeId,

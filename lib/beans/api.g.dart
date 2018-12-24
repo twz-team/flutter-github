@@ -6,7 +6,7 @@ part of 'api.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Api _$ApiBeanFromJson(Map<String, dynamic> json) {
+Api _$ApiFromJson(Map<String, dynamic> json) {
   return Api()
     ..currentUserUrl = json['current_user_url'] as String
     ..currentUserAuthorizationsHtmlUrl =
@@ -35,7 +35,7 @@ Api _$ApiBeanFromJson(Map<String, dynamic> json) {
     ..userSearchUrl = json['user_search_url'] as String;
 }
 
-Map<String, dynamic> _$ApiBeanToJson(Api instance) => <String, dynamic>{
+Map<String, dynamic> _$ApiToJson(Api instance) => <String, dynamic>{
       'current_user_url': instance.currentUserUrl,
       'current_user_authorizations_html_url':
           instance.currentUserAuthorizationsHtmlUrl,

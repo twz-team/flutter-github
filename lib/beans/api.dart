@@ -41,9 +41,9 @@ part 'api.g.dart';
 class Api {
   Api();
 
-  factory Api.fromJson(json) => _$ApiBeanFromJson(json);
+  factory Api.fromJson(json) => _$ApiFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ApiBeanToJson(this);
+  Map<String, dynamic> toJson() => _$ApiToJson(this);
 
   @JsonKey(name: 'current_user_url')
   String currentUserUrl;

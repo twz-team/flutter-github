@@ -25,12 +25,14 @@ class MZAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.trailng,
     this.bottom,
     this.leading,
+    this.automaticallyImplyLeading = true,
   })  : this.size = size ?? 20.0,
         preferredSize =
             Size.fromHeight(_kNavBarPersistentHeight + (bottom?.preferredSize?.height ?? 0.0));
 
   final double size;
   final String title;
+  final bool automaticallyImplyLeading;
   final Widget trailng;
   final Widget leading;
 
@@ -50,6 +52,39 @@ class _MZAppBarState extends State<MZAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    final ModalRoute parentRoute = ModalRoute.of(context);
+    final canPop = parentRoute?.canPop ?? false;
+
+    Widget leading = widget.leading;
+
+    if (leading == null && widget.automaticallyImplyLeading) {
+      if (canPop) {
+        leading = MZInkWell(
+          child: Container(
+            alignment: AlignmentDirectional.centerStart,
+            width: 44.0,
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+              size: widget.size,
+            ),
+          ),
+          onTap: () {
+            Navigator.maybePop(context);
+          },
+        );
+      } else {
+        leading = Container();
+      }
+    }
+
+    if (leading != null) {
+      leading = Align(
+        alignment: AlignmentDirectional.centerStart,
+        child: leading,
+      );
+    }
+
     return Semantics(
       container: true,
       explicitChildNodes: true,
@@ -76,24 +111,7 @@ class _MZAppBarState extends State<MZAppBar> {
                     Container(
                       width: 88.0,
                       padding: EdgeInsets.only(left: 10.0),
-                      child: Align(
-                        alignment: AlignmentDirectional.centerStart,
-                        child: widget.leading ??
-                            MZInkWell(
-                              child: Container(
-                                alignment: AlignmentDirectional.centerStart,
-                                width: 44.0,
-                                child: Icon(
-                                  Icons.arrow_back_ios,
-                                  color: Colors.white,
-                                  size: widget.size,
-                                ),
-                              ),
-                              onTap: () {
-                                Navigator.maybePop(context);
-                              },
-                            ),
-                      ),
+                      child: leading,
                     ),
                     Container(
                       child: Text(

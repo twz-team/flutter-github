@@ -26,6 +26,7 @@ dependencies:
   uuid: ^1.0.3
   redux: ^3.0.0
   flutter_redux: ^0.5.2
+  redux_epics: ^0.10.2 # 同功能
   redux_thunk: ^0.2.1
 
 dev_dependencies:

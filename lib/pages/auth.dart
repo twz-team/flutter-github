@@ -3,10 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:mz_github/stores/app_actions.dart';
 import 'package:mz_github/stores/app_state.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mz_github/config/api.dart';
 import 'package:mz_github/widgets/mz_app_bar.dart';
-import 'login.dart';
+import 'package:redux/redux.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key key}) : super(key: key);
@@ -31,6 +30,39 @@ class _AuthPageState extends State<AuthPage> {
     super.dispose();
   }
 
+  Store<AppState> get _store => AppState.of(context);
+
+  MediaQueryData get _mediaData => MediaQuery.of(context);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Positioned(
+          child: WebviewScaffold(
+            url: MZApi.authPath,
+            initialChild: _buildInitialChild(),
+            appBar: MZAppBar(
+              title: _title,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildInitialChild() {
+    return Container(
+      height: _mediaData.size.height,
+      width: _mediaData.size.width,
+      child: Center(
+        child: RefreshProgressIndicator(
+          backgroundColor: Colors.white,
+        ),
+      ),
+    );
+  }
+
   void _onUrlChanged(String url) {
     if (url.contains('authStatus.html?token=')) {
       final uri = Uri.dataFromString(url);
@@ -43,31 +75,10 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   void _toPrepare(Map<String, String> query) async {
-    AppState.of(context).dispatch(SetTokenAction(query['token']));
-    AppState.of(context).dispatch(InitAppAction.requestInitApp);
-    Navigator.of(context).pop();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return WebviewScaffold(
-      url: MZApi.authPath,
-      initialChild: LayoutBuilder(
-        builder: (context, cros) {
-          return Container(
-            width: cros.maxWidth,
-            height: cros.maxHeight,
-            child: Center(
-              child: RefreshProgressIndicator(
-                backgroundColor: Colors.white,
-              ),
-            ),
-          );
-        },
-      ),
-      appBar: MZAppBar(
-        title: _title,
-      ),
-    );
+    _store.state.sharedPreferences.setString('token', query['token']);
+    _store.dispatch(AppSetTokenAction(query['token']));
+    _store.dispatch(AppSetLoginMessageAction('授权成功'));
+    _store.dispatch(AppAction.initApiAction);
+    Navigator.pop(context);
   }
 }

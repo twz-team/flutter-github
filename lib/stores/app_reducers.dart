@@ -1,28 +1,43 @@
+import 'package:redux/redux.dart';
 import 'package:mz_github/beans/api.dart';
 import 'package:mz_github/beans/user.dart';
 import 'package:mz_github/stores/app_actions.dart';
 import 'package:mz_github/stores/app_state.dart';
-import 'package:redux/redux.dart';
+import 'package:mz_github/stores/module/my.dart';
 
 AppState appReducer(AppState state, action) {
-  return new AppState(
-    token: setTokenReducer(state, action),
-    appApi: initApiReducers(state, action),
-    appUser: initUserReducers(state, action),
+  return AppState(
+    loginMessage: loginMessageReducer(state.loginMessage, action),
+    token: tokenReducer(state.token, action),
+    appApi: appApiReducer(state.appApi, action),
+    appUser: appUserReducer(state.appUser, action),
+    sharedPreferences: state.sharedPreferences,
+    myState: myReducer(state.myState, action),
   );
 }
 
-final appApiReducer = combineReducers<Api>([]);
+final loginMessageReducer = combineReducers<String>([
+  TypedReducer<String, AppSetLoginMessageAction>(
+      (String loginMessage, AppSetLoginMessageAction action) {
+    return action.loginMessage;
+  }),
+]);
 
-String setTokenReducer(AppState state, SetTokenAction action) {
-  state.sharedPreferences.setString('token', action.token);
-  return action.token;
-}
+final tokenReducer = combineReducers<String>([
+  TypedReducer<String, AppSetTokenAction>((token, AppSetTokenAction action) {
+    print('已保存token: ${action.token}');
+    return action.token;
+  }),
+]);
 
-Api initApiReducers(AppState state, InitAppAction action) {
-  return action.api;
-}
+final appApiReducer = combineReducers<Api>([
+  TypedReducer<Api, AppSetApiAction>((api, AppSetApiAction action) {
+    return action.api;
+  }),
+]);
 
-User initUserReducers(state, InitAppAction action) {
-  return action.user;
-}
+final appUserReducer = combineReducers<User>([
+  TypedReducer<User, AppSetUserAction>((user, AppSetUserAction action) {
+    return action.user;
+  }),
+]);

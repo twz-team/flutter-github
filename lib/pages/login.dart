@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:mz_github/pages/auth.dart';
-import 'package:mz_github/stores/app_actions.dart';
 import 'package:mz_github/stores/app_state.dart';
 import 'package:mz_github/widgets/mz_ink_well.dart';
 import 'package:mz_github/widgets/mz_footer_right.dart';
+import 'package:redux/redux.dart';
 
 class LoginPage extends StatefulWidget {
-  final bool auth;
-  final String token;
-
-  const LoginPage({Key key, this.auth, this.token}) : super(key: key);
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -25,18 +21,16 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     super.initState();
     _animationController = AnimationController(vsync: this);
     _animation = _animationController.drive(Tween<Color>(begin: Colors.white, end: Colors.black));
-    if (widget.auth != null && widget.auth) _prepare();
+    print('init login');
   }
 
-  void _prepare() async {
-    // AppState.of(context).dispatch(InitAppAction.requestInitApp);
-  }
+  Store<AppState> get _store => AppState.of(context);
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, String>(
-      converter: (store) => store.state.token,
-      builder: (context, token) {
+    return StoreConnector<AppState, AppState>(
+      converter: (store) => store.state,
+      builder: (context, vm) {
         return LayoutBuilder(
           builder: (context, viewportsConstraits) {
             return Scaffold(
@@ -78,9 +72,9 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                     borderRadius: BorderRadius.all(Radius.circular(40.0)),
                                   ),
                                   child: Center(
-                                    child: widget.auth == null || !widget.auth
+                                    child: vm.token == null
                                         ? Text(
-                                            '授权',
+                                            vm.loginMessage,
                                             style: TextStyle(color: Colors.white),
                                           )
                                         : Row(
@@ -98,7 +92,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                                               Container(
                                                 margin: EdgeInsets.only(left: 10),
                                                 child: Text(
-                                                  '数据加载中...$token',
+                                                  vm.loginMessage,
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                   ),
@@ -129,7 +123,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   }
 
   void _onTapAuth() {
-    if (widget.auth == null || !widget.auth)
+    if (_store.state.token == null)
       Navigator.of(context).push(CupertinoPageRoute(builder: (context) => AuthPage()));
   }
 }

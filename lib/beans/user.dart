@@ -56,9 +56,9 @@ part 'user.g.dart';
 class User {
   User({UserPlanBean plan}) : this.plan = plan ?? UserPlanBean();
 
-  factory User.fromJson(json) => _$UserBeanFromJson(json);
+  factory User.fromJson(json) => _$UserFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserBeanToJson(this);
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 
   // 登录名称
   String login;
@@ -114,7 +114,7 @@ class User {
   String type;
 
   @JsonKey(name: 'site_admin')
-  String siteAdmin;
+  bool siteAdmin;
 
   String name;
 
@@ -131,10 +131,10 @@ class User {
   String bio;
 
   @JsonKey(name: 'public_repos')
-  String publicRepos;
+  int publicRepos;
 
   @JsonKey(name: 'public_gists')
-  String publicGists;
+  int publicGists;
 
   int followers;
 
