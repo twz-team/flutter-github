@@ -73,76 +73,76 @@ Repository _$RepositoryFromJson(Map<String, dynamic> json) {
     ..id = json['id'] as int
     ..nodeId = json['node_id'] as String
     ..name = json['name'] as String
-    ..fullName = json['fullName'] as String
+    ..fullName = json['full_name'] as String
     ..private = json['private'] as bool
     ..owner =
         json['owner'] == null ? null : RepositoryOwner.fromJson(json['owner'])
-    ..htmlUrl = json['htmlUrl'] as String
+    ..htmlUrl = json['html_url'] as String
     ..description = json['description'] as String
     ..fork = json['fork'] as bool
     ..url = json['url'] as String
-    ..forksUrl = json['forksUrl'] as String
-    ..keysUrl = json['keysUrl'] as String
-    ..collaboratorsUrl = json['collaboratorsUrl'] as String
-    ..teamsUrl = json['teamsUrl'] as String
-    ..hooksUrl = json['hooksUrl'] as String
-    ..issueEventsUrl = json['issueEventsUrl'] as String
-    ..assigneesUrl = json['assigneesUrl'] as String
-    ..branchesUrl = json['branchesUrl'] as String
-    ..tagsUrl = json['tagsUrl'] as String
-    ..blobsUrl = json['blobsUrl'] as String
-    ..gitTagsUrl = json['gitTagsUrl'] as String
-    ..gitRefsUrl = json['gitRefsUrl'] as String
-    ..treesUrl = json['treesUrl'] as String
-    ..statusesUrl = json['statusesUrl'] as String
-    ..languagesUrl = json['languagesUrl'] as String
-    ..stargazersUrl = json['stargazersUrl'] as String
-    ..contributorsUrl = json['contributorsUrl'] as String
-    ..subscribersUrl = json['subscribersUrl'] as String
-    ..subscriptionUrl = json['subscriptionUrl'] as String
-    ..commitsUrl = json['commitsUrl'] as String
-    ..gitCommitsUrl = json['gitCommitsUrl'] as String
-    ..commentsUrl = json['commentsUrl'] as String
-    ..issueCommentsUrl = json['issueCommentsUrl'] as String
-    ..contentsUrl = json['contentsUrl'] as String
-    ..compareUrl = json['compareUrl'] as String
-    ..mergesUrl = json['mergesUrl'] as String
-    ..archiveUrl = json['archiveUrl'] as String
-    ..downloadsUrl = json['downloadsUrl'] as String
-    ..issuesUrl = json['issuesUrl'] as String
-    ..pullsUrl = json['pullsUrl'] as String
-    ..milestonesUrl = json['milestonesUrl'] as String
-    ..notificationsUrl = json['notificationsUrl'] as String
-    ..labelsUrl = json['labelsUrl'] as String
-    ..releasesUrl = json['releasesUrl'] as String
-    ..deploymentsUrl = json['deploymentsUrl'] as String
-    ..createdAt = json['createdAt'] as String
-    ..pushedAt = json['pushedAt'] as String
-    ..gitUrl = json['gitUrl'] as String
-    ..sshUrl = json['sshUrl'] as String
-    ..cloneUrl = json['cloneUrl'] as String
-    ..svnUrl = json['svnUrl'] as String
+    ..forksUrl = json['forks_url'] as String
+    ..keysUrl = json['keys_url'] as String
+    ..collaboratorsUrl = json['collaborators_url'] as String
+    ..teamsUrl = json['teams_url'] as String
+    ..hooksUrl = json['hooks_url'] as String
+    ..issueEventsUrl = json['issue_events_url'] as String
+    ..assigneesUrl = json['assignees_url'] as String
+    ..branchesUrl = json['branches_url'] as String
+    ..tagsUrl = json['tags_url'] as String
+    ..blobsUrl = json['blobs_url'] as String
+    ..gitTagsUrl = json['git_tags_url'] as String
+    ..gitRefsUrl = json['git_refs_url'] as String
+    ..treesUrl = json['trees_url'] as String
+    ..statusesUrl = json['statuses_url'] as String
+    ..languagesUrl = json['languages_url'] as String
+    ..stargazersUrl = json['stargazers_url'] as String
+    ..contributorsUrl = json['contributors_url'] as String
+    ..subscribersUrl = json['subscribers_url'] as String
+    ..subscriptionUrl = json['subscription_url'] as String
+    ..commitsUrl = json['commits_url'] as String
+    ..gitCommitsUrl = json['git_commits_url'] as String
+    ..commentsUrl = json['comments_url'] as String
+    ..issueCommentsUrl = json['issue_comments_url'] as String
+    ..contentsUrl = json['contents_url'] as String
+    ..compareUrl = json['compare_url'] as String
+    ..mergesUrl = json['merges_url'] as String
+    ..archiveUrl = json['archive_url'] as String
+    ..downloadsUrl = json['downloads_url'] as String
+    ..issuesUrl = json['issues_url'] as String
+    ..pullsUrl = json['pulls_url'] as String
+    ..milestonesUrl = json['milestones_url'] as String
+    ..notificationsUrl = json['notifications_url'] as String
+    ..labelsUrl = json['labels_url'] as String
+    ..releasesUrl = json['releases_url'] as String
+    ..deploymentsUrl = json['deployments_url'] as String
+    ..createdAt = json['create_at'] as String
+    ..pushedAt = json['pushed_at'] as String
+    ..gitUrl = json['git_url'] as String
+    ..sshUrl = json['ssh_url'] as String
+    ..cloneUrl = json['clone_url'] as String
+    ..svnUrl = json['svn_url'] as String
     ..homepage = json['homepage'] as String
     ..size = json['size'] as int
-    ..stargazersCount = json['stargazersCount'] as int
-    ..watchersCount = json['watchersCount'] as int
+    ..stargazersCount = json['stargazers_count'] as int
+    ..watchersCount = json['watchers_count'] as int
     ..language = json['language'] as String
-    ..hasIussues = json['hasIussues'] as bool
-    ..hasProjects = json['hasProjects'] as bool
-    ..hasDownloads = json['hasDownloads'] as bool
-    ..hasWiki = json['hasWiki'] as bool
-    ..hasPages = json['hasPages'] as bool
-    ..forksCount = json['forksCount'] as int
-    ..mirrorUrl = json['mirrorUrl'] as String
+    ..hasIssues = json['has_issues'] as bool
+    ..hasProjects = json['has_projects'] as bool
+    ..hasDownloads = json['has_downloads'] as bool
+    ..hasWiki = json['has_wiki'] as bool
+    ..hasPages = json['has_pages'] as bool
+    ..forksCount = json['forks_count'] as int
+    ..mirrorUrl = json['mirror_url'] as String
     ..archived = json['archived'] as bool
-    ..openIssueCount = json['openIssueCount'] as int
+    ..openIssueCount = json['open_issue_count'] as int
     ..license = json['license'] == null
         ? null
         : RepositoryLicense.fromJson(json['license'])
     ..forks = json['forks'] as int
-    ..openIssues = json['openIssues'] as int
+    ..openIssues = json['open_issues'] as int
     ..watchers = json['watchers'] as int
-    ..defaultBranch = json['defaultBranch'] as String
+    ..defaultBranch = json['default_branch'] as String
     ..permissions = (json['permissions'] as Map<String, dynamic>)
         ?.map((k, e) => MapEntry(k, e as bool));
 }
@@ -152,72 +152,72 @@ Map<String, dynamic> _$RepositoryToJson(Repository instance) =>
       'id': instance.id,
       'node_id': instance.nodeId,
       'name': instance.name,
-      'fullName': instance.fullName,
+      'full_name': instance.fullName,
       'private': instance.private,
       'owner': instance.owner,
-      'htmlUrl': instance.htmlUrl,
+      'html_url': instance.htmlUrl,
       'description': instance.description,
       'fork': instance.fork,
       'url': instance.url,
-      'forksUrl': instance.forksUrl,
-      'keysUrl': instance.keysUrl,
-      'collaboratorsUrl': instance.collaboratorsUrl,
-      'teamsUrl': instance.teamsUrl,
-      'hooksUrl': instance.hooksUrl,
-      'issueEventsUrl': instance.issueEventsUrl,
-      'assigneesUrl': instance.assigneesUrl,
-      'branchesUrl': instance.branchesUrl,
-      'tagsUrl': instance.tagsUrl,
-      'blobsUrl': instance.blobsUrl,
-      'gitTagsUrl': instance.gitTagsUrl,
-      'gitRefsUrl': instance.gitRefsUrl,
-      'treesUrl': instance.treesUrl,
-      'statusesUrl': instance.statusesUrl,
-      'languagesUrl': instance.languagesUrl,
-      'stargazersUrl': instance.stargazersUrl,
-      'contributorsUrl': instance.contributorsUrl,
-      'subscribersUrl': instance.subscribersUrl,
-      'subscriptionUrl': instance.subscriptionUrl,
-      'commitsUrl': instance.commitsUrl,
-      'gitCommitsUrl': instance.gitCommitsUrl,
-      'commentsUrl': instance.commentsUrl,
-      'issueCommentsUrl': instance.issueCommentsUrl,
-      'contentsUrl': instance.contentsUrl,
-      'compareUrl': instance.compareUrl,
-      'mergesUrl': instance.mergesUrl,
-      'archiveUrl': instance.archiveUrl,
-      'downloadsUrl': instance.downloadsUrl,
-      'issuesUrl': instance.issuesUrl,
-      'pullsUrl': instance.pullsUrl,
-      'milestonesUrl': instance.milestonesUrl,
-      'notificationsUrl': instance.notificationsUrl,
-      'labelsUrl': instance.labelsUrl,
-      'releasesUrl': instance.releasesUrl,
-      'deploymentsUrl': instance.deploymentsUrl,
-      'createdAt': instance.createdAt,
-      'pushedAt': instance.pushedAt,
-      'gitUrl': instance.gitUrl,
-      'sshUrl': instance.sshUrl,
-      'cloneUrl': instance.cloneUrl,
-      'svnUrl': instance.svnUrl,
+      'forks_url': instance.forksUrl,
+      'keys_url': instance.keysUrl,
+      'collaborators_url': instance.collaboratorsUrl,
+      'teams_url': instance.teamsUrl,
+      'hooks_url': instance.hooksUrl,
+      'issue_events_url': instance.issueEventsUrl,
+      'assignees_url': instance.assigneesUrl,
+      'branches_url': instance.branchesUrl,
+      'tags_url': instance.tagsUrl,
+      'blobs_url': instance.blobsUrl,
+      'git_tags_url': instance.gitTagsUrl,
+      'git_refs_url': instance.gitRefsUrl,
+      'trees_url': instance.treesUrl,
+      'statuses_url': instance.statusesUrl,
+      'languages_url': instance.languagesUrl,
+      'stargazers_url': instance.stargazersUrl,
+      'contributors_url': instance.contributorsUrl,
+      'subscribers_url': instance.subscribersUrl,
+      'subscription_url': instance.subscriptionUrl,
+      'commits_url': instance.commitsUrl,
+      'git_commits_url': instance.gitCommitsUrl,
+      'comments_url': instance.commentsUrl,
+      'issue_comments_url': instance.issueCommentsUrl,
+      'contents_url': instance.contentsUrl,
+      'compare_url': instance.compareUrl,
+      'merges_url': instance.mergesUrl,
+      'archive_url': instance.archiveUrl,
+      'downloads_url': instance.downloadsUrl,
+      'issues_url': instance.issuesUrl,
+      'pulls_url': instance.pullsUrl,
+      'milestones_url': instance.milestonesUrl,
+      'notifications_url': instance.notificationsUrl,
+      'labels_url': instance.labelsUrl,
+      'releases_url': instance.releasesUrl,
+      'deployments_url': instance.deploymentsUrl,
+      'create_at': instance.createdAt,
+      'pushed_at': instance.pushedAt,
+      'git_url': instance.gitUrl,
+      'ssh_url': instance.sshUrl,
+      'clone_url': instance.cloneUrl,
+      'svn_url': instance.svnUrl,
       'homepage': instance.homepage,
       'size': instance.size,
-      'stargazersCount': instance.stargazersCount,
-      'watchersCount': instance.watchersCount,
+      'stargazers_count': instance.stargazersCount,
+      'watchers_count': instance.watchersCount,
       'language': instance.language,
-      'hasIussues': instance.hasIussues,
-      'hasProjects': instance.hasProjects,
-      'hasDownloads': instance.hasDownloads,
-      'hasWiki': instance.hasWiki,
-      'hasPages': instance.hasPages,
-      'forksCount': instance.forksCount,
-      'mirrorUrl': instance.mirrorUrl,
+      'has_issues': instance.hasIssues,
+      'has_projects': instance.hasProjects,
+      'has_downloads': instance.hasDownloads,
+      'has_wiki': instance.hasWiki,
+      'has_pages': instance.hasPages,
+      'forks_count': instance.forksCount,
+      'mirror_url': instance.mirrorUrl,
       'archived': instance.archived,
-      'openIssueCount': instance.openIssueCount,
+      'open_issue_count': instance.openIssueCount,
       'license': instance.license,
       'forks': instance.forks,
-      'openIssues': instance.openIssues,
+      'open_issues': instance.openIssues,
       'watchers': instance.watchers,
-      'defaultBranch': instance.defaultBranch,
+      'default_branch': instance.defaultBranch,
       'permissions': instance.permissions
     };
