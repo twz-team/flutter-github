@@ -20,6 +20,7 @@ const appBarTitleStyle = TextStyle(
 
 class MZAppBar extends StatefulWidget implements PreferredSizeWidget {
   MZAppBar({
+    Key key,
     double size,
     this.title,
     this.trailng,
@@ -28,7 +29,8 @@ class MZAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.automaticallyImplyLeading = true,
   })  : this.size = size ?? 20.0,
         preferredSize =
-            Size.fromHeight(_kNavBarPersistentHeight + (bottom?.preferredSize?.height ?? 0.0));
+            Size.fromHeight(_kNavBarPersistentHeight + (bottom?.preferredSize?.height ?? 0.0)),
+        super(key: key);
 
   final double size;
   final String title;
