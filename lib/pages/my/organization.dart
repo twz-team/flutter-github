@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mz_github/stores/app_state.dart';
-import 'package:mz_github/stores/module/my.dart';
+import 'package:mz_github/stores/models/my.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:mz_github/widgets/mz_organization_item.dart';
 

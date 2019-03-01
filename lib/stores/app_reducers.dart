@@ -3,7 +3,7 @@ import 'package:mz_github/beans/api.dart';
 import 'package:mz_github/beans/user.dart';
 import 'package:mz_github/stores/app_actions.dart';
 import 'package:mz_github/stores/app_state.dart';
-import 'package:mz_github/stores/module/my.dart';
+import 'package:mz_github/stores/models/my.dart';
 
 AppState appReducer(AppState state, action) {
   return AppState(

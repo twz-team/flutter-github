@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mz_github/stores/app_state.dart';
-import 'package:mz_github/stores/module/my.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
@@ -10,7 +9,7 @@ class BasicDashboard extends StatefulWidget {
 }
 
 class _BasicDashboardState extends State<BasicDashboard> {
-  Store<AppState> get _store => AppState.of(context);
+  // Store<AppState> get _store => AppState.of(context);
 
   @override
   Widget build(BuildContext context) {

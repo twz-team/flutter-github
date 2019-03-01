@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:mz_github/beans/api.dart';
 import 'package:mz_github/beans/user.dart';
-import 'package:mz_github/stores/module/my.dart';
+import 'package:mz_github/stores/models/my.dart';
 import 'package:redux/redux.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
