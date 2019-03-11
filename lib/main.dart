@@ -20,7 +20,6 @@ Future<MainInitOption> mainInit() async {
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   var deviceId = sharedPreferences.getString(Dic.deviceId);
   var token = sharedPreferences.getString('token');
-  // todo: 调试状态
   // sharedPreferences.remove('token');
   if (deviceId == null) {
     final uuid = Uuid();
