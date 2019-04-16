@@ -12,7 +12,7 @@ const kLinkColor = Color(0xFF0366d6);
 
 const kBorderColor = Color(0xFFEAECEF);
 
-const kLinkSize = 18.0;
+const kLinkSize = 16.0;
 
 class Constants {
   static String organizationType = 'Organization';

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:mz_github/constants.dart';
 import 'package:mz_github/pages/basic.dart';
+import 'package:mz_github/pages/example/list-router.dart';
 import 'package:mz_github/pages/my/follower.dart';
 import 'package:mz_github/pages/my/organization.dart';
 import 'package:mz_github/pages/my/repository.dart';
@@ -10,6 +11,7 @@ import 'package:mz_github/pages/my/stared.dart';
 import 'package:mz_github/pages/my/watcher.dart';
 import 'package:mz_github/stores/app_state.dart';
 import 'package:mz_github/widgets/mz_app_bar.dart';
+import 'package:mz_github/widgets/mz_ink_well.dart';
 import 'package:mz_github/widgets/mz_label_info.dart';
 import 'package:mz_github/widgets/mz_tab_item.dart';
 import 'package:redux/redux.dart';
@@ -107,10 +109,19 @@ class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          '描述: ${vm.appUser.bio}',
-                          style: TextStyle(color: Colors.white),
+                          '${vm.appUser.bio}',
+                          style: TextStyle(color: Colors.white, fontSize: 12.0),
                         ),
                       ),
+                      // Container(
+                      //   child: MZInkWell(
+                      //     child: Text('跳转去示例'),
+                      //     onTap: () {
+                      //       Navigator.of(context).push(
+                      //           CupertinoPageRoute(builder: (context) => ListExampleRoutes()));
+                      //     },
+                      //   ),
+                      // ),
                       TabBar(
                         controller: _tabController,
                         indicatorWeight: 2.0,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const textStyle = TextStyle(
   color: Colors.white,
-  fontSize: 16.0,
+  fontSize: 14.0,
 );
 
 class MZLabelInfo extends StatelessWidget {
